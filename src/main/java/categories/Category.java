@@ -1,8 +1,6 @@
 package categories;
 
 import java.math.BigDecimal;
-import java.time.Month;
-import java.time.Year;
 import java.util.List;
 
 import expense.Expense;
@@ -13,9 +11,10 @@ public class Category {
 	private List<Expense> expenses;
 	private Length length;
 	
-	public Category(String name, Length length) {
+	public Category(String name, Length length, BigDecimal budget) {
 		this.name = name;
 		this.length = length;
+		this.budget = budget;
 	}
 	
 	public String getName() {
