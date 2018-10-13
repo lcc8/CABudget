@@ -1,7 +1,10 @@
 package model;
+import lombok.Getter;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
+@Getter
 public class Expense {
 	private String name;
 	private BigDecimal amount;
@@ -14,22 +17,11 @@ public class Expense {
 		this.date = date;
 	}
 	
-	public BigDecimal getAmount() {
-		return amount;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public String getName() {
-		return name;
-	}
-	
 	public void setCategory(Category category) {
 		if(this.category != null && this.category != category) {
 			this.category.removeExpense(this);
 		}
+		this.category = category;
 		category.addExpense(this);
 	}
 

@@ -1,6 +1,7 @@
 package model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Category {
@@ -13,6 +14,7 @@ public class Category {
 		this.name = name;
 		this.length = length;
 		this.budget = budget;
+		expenses = new ArrayList<Expense>();
 	}
 	
 	public String getName() {

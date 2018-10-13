@@ -49,4 +49,12 @@ public class MonthlyServiceObserver implements Observer, MonthlyService {
             log.info("Set expense " + expense.getName() + " to category " + categoryName);
         }
     }
+
+    public List<Expense> getExpenses() {
+        return expenses;
+    }
+
+    public Map<String, Category> getCategories() {
+        return categories;
+    }
 }
