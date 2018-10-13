@@ -1,12 +1,13 @@
-package service;
+package service.impl;
 
 import java.math.BigDecimal;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import categories.Category;
-import categories.Length;
+import model.Category;
+import model.Length;
+import service.BudgetService;
 
 @Service
 public class BudgetServiceImpl implements BudgetService {

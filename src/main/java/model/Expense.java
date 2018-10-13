@@ -1,15 +1,15 @@
-package expense;
+package model;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import categories.Category;
-
 public class Expense {
+	private String name;
 	private BigDecimal amount;
 	private Date date;
 	private Category category;
 	
-	public Expense(BigDecimal amount, Date date) {
+	public Expense(String name, BigDecimal amount, Date date) {
+		this.name = name;
 		this.amount = amount;
 		this.date = date;
 	}
@@ -21,6 +21,10 @@ public class Expense {
 	public Date getDate() {
 		return date;
 	}
+
+	public String getName() {
+		return name;
+	}
 	
 	public void setCategory(Category category) {
 		if(this.category != null && this.category != category) {
@@ -28,4 +32,5 @@ public class Expense {
 		}
 		category.addExpense(this);
 	}
+
 }

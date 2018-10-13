@@ -1,9 +1,11 @@
+package subject;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
-import categories.Category;
+import model.Category;
 
 public class BudgetSubject extends Observable{
 	Map<String, Category> categories;
@@ -12,7 +14,6 @@ public class BudgetSubject extends Observable{
 	
 	public void setCategory(Category category) {
 		categories.put(category.getName(), category);
-		
 		categoriesChanged();
 	}
 	
@@ -23,16 +24,11 @@ public class BudgetSubject extends Observable{
 	
 	private void notifyObserver() {
 		for(Observer observer : observers) {
-			observer.update(categories);
+			observer.update(this, categories);
 		}
-		
 	}
 
 	public Map<String, Category> getAllCategories(){
 		return categories;
-	}
-	
-	
-	
-	
+	}	
 }

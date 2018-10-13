@@ -1,9 +1,7 @@
-package categories;
+package model;
 
 import java.math.BigDecimal;
 import java.util.List;
-
-import expense.Expense;
 
 public class Category {
 	private String name; 

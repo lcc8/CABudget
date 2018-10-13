@@ -1,4 +1,4 @@
-package categories;
+package model;
 
 public enum Length {
 	MONTHLY,YEARLY;

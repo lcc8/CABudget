@@ -2,8 +2,8 @@ package service;
 
 import java.math.BigDecimal;
 
-import categories.Category;
-import categories.Length;
+import model.Category;
+import model.Length;
 
 public interface BudgetService {
 	Category createACategory(String name, Length length, BigDecimal budget);
