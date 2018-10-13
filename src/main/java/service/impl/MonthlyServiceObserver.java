@@ -17,11 +17,11 @@ public class MonthlyServiceObserver implements Observer, MonthlyService {
 
     public MonthlyServiceObserver(Map<String, Category> categories) {
         expenses = new ArrayList<Expense>();
-        this.categories = categories==null ? new HashMap<String, Category>() : categories;
+        this.categories = categories == null ? new HashMap<String, Category>() : categories;
     }
 
     public void update(Observable o, Object arg) {
-        if(o instanceof BudgetSubject){
+        if (o instanceof BudgetSubject) {
             Map<String, Category> categoryMap = ((BudgetSubject) o).getAllCategories();
             this.categories = categoryMap;
         }
@@ -42,12 +42,13 @@ public class MonthlyServiceObserver implements Observer, MonthlyService {
         Expense expense = expenses.get(index);
         Category category = categories.get(categoryName);
 
-        if(category == null){
+        if (category == null) {
             log.warn("Cannot set " + expense.getName() + " to category " + categoryName + " because this category does not exist.");
-        }else{
-            expense.setCategory(category);
-            log.info("Set expense " + expense.getName() + " to category " + categoryName);
+            return;
         }
+        expense.setCategory(category);
+        log.info("Set expense " + expense.getName() + " to category " + categoryName);
+
     }
 
     public List<Expense> getExpenses() {
