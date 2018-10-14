@@ -6,14 +6,16 @@ import java.util.Observable;
 import java.util.Observer;
 
 import model.Category;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BudgetSubject extends Observable{
 	Map<String, Category> categories;
 	List<Observer> observers;
 	
 	
-	public void setCategory(Category category) {
-		categories.put(category.getName(), category);
+	public void setCategories(Map<String, Category> categories) {
+		this.categories = categories;
 		categoriesChanged();
 	}
 	
@@ -27,8 +29,4 @@ public class BudgetSubject extends Observable{
 			observer.update(this, categories);
 		}
 	}
-
-	public Map<String, Category> getAllCategories(){
-		return categories;
-	}	
 }
