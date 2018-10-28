@@ -43,4 +43,12 @@ public class Category {
 	public void setLength(Length length) {
 		this.length = length;
 	}
+
+	public boolean isYearlyBudget(){
+		return length == Length.YEARLY;
+	}
+
+	public boolean isMonthlyBudget(){
+		return length == Length.MONTHLY;
+	}
 }

@@ -20,12 +20,15 @@ import subject.BudgetSubject;
 public class BudgetServiceImpl implements BudgetService {
 	
 	private Map<String, Category> categories;
+	public static final String UNKNOW_CATEGORY = "unknown";
 
 	@Autowired
 	private BudgetSubject budgetSubject;
 
 	public BudgetServiceImpl() {
 		categories = new HashMap<String, Category>();
+		// add a default category
+		categories.put(UNKNOW_CATEGORY, new Category(UNKNOW_CATEGORY, Length.MONTHLY, BigDecimal.ZERO));
 	}
 
 	public void createACategory(String name, Length length, BigDecimal budget) {
